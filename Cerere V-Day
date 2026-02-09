@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine’s Day 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 45px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 17px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        #yesBtn {
+            background: #e91e63;
+            color: white;
+            margin-right: 20px;
+        }
+
+        #noBtn {
+            background: #ddd;
+            color: #333;
+            position: absolute;
+        }
+
+        /* INIMIOARE */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 20px;
+            animation: floatUp linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-10vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Dăriuț, vrei să fii partenera mea<br>de Valentine’s Day? 💕</h1>
+    <p>Am o mică întrebare care vine din inimă…</p>
+    <button id="yesBtn" onclick="accept()">DA, BINEÎNȚELES 💖</button>
+    <button id="noBtn" onmouseover="moveButton()">NU 🙈</button>
+</div>
+
+<script>
+    // BUTON NU JUCĂUȘ
+    function moveButton() {
+        const btn = document.getElementById("noBtn");
+        const card = document.querySelector(".card");
+
+        const maxX = card.offsetWidth - btn.offsetWidth;
+        const maxY = card.offsetHeight - btn.offsetHeight;
+
+        btn.style.left = Math.random() * maxX + "px";
+        btn.style.top = Math.random() * maxY + "px";
+    }
+
+    // MESAJ FINAL + WHATSAPP
+    function accept() {
+        alert("Am știut 💖 Mulțumesc că exiști.");
+
+        const message = encodeURIComponent(
+            "DA 💕 Abia aștept Valentine’s Day cu tine 🥰"
+        );
+
+        const phone = "+40750435330";
+
+        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+    }
+
+    // INIMIOARE ANIMATE
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 7000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
