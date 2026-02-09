@@ -83,8 +83,8 @@
 
 <div class="card">
     <h1>Vrei să fii partenera mea<br>de Valentine’s Day? 💕</h1>
-    <button id="yesBtn" onclick="accept()">DA 💖</button>
-    <button id="noBtn" onmouseover="moveButton()">NU 🙈</button>
+    <button id="yesBtn" onclick="accept()">DA Bineînțeles 💖</button>
+    <button id="noBtn" onmouseover="moveButton()">NU, PAAAAAAAAAAA 🙈</button>
 </div>
 
 <script>
@@ -102,12 +102,25 @@
 
     // ACCEPT + WHATSAPP
     function accept() {
+        <script>
+function accept() {
+    alert("Am știut 💖 Mulțumesc că exiști.");
+
+    const message = encodeURIComponent(
+        "DA 💕 Abia aștept Valentine’s Day cu tine 🥰"
+    );
+
+    const phone = "NUMARUL_DE_TELEFON";
+
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
         const message = encodeURIComponent(
             "DAAA! 💖 Abia aștept Valentine’s Day cu tine 🥰"
         );
 
         // Înlocuiește cu numărul ei (format internațional)
-        const phone = "0750435330";
+        const phone = "+40750435330";
 
         window.location.href = `https://wa.me/${phone}?text=${message}`;
     }
